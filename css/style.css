@@ -745,3 +745,54 @@ em { font-style: italic; font-family: var(--f-display); font-weight: 300; }
   .logo__tile img { width: 32px; height: 32px; }
   .spin-badge img.core { width: 42px; height: 42px; }
 }
+
+/* ---------- Partners ---------- */
+.pstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.pcard { position: relative; display: flex; flex-direction: column; padding: 32px; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); transition: transform .6s var(--ease), box-shadow .6s, background .5s, color .5s; overflow: hidden; }
+.pcard::after { content: ""; position: absolute; width: 260px; height: 260px; right: -130px; top: -130px; background: radial-gradient(circle, rgba(229,194,122,.35), transparent 65%); opacity: 0; transition: opacity .6s; }
+.pcard:hover { transform: translateY(-8px); box-shadow: var(--shadow); background: var(--dark); color: #fff; }
+.pcard:hover::after { opacity: 1; }
+.pcard__ic { width: 56px; height: 56px; border-radius: 16px; background: var(--bg); color: var(--gold); display: grid; place-items: center; margin-bottom: 44px; transition: background .5s, color .5s; }
+.pcard:hover .pcard__ic { background: var(--gold-grad); color: var(--ink); }
+.pcard__ic svg { width: 24px; height: 24px; }
+.pcard__kind { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.pcard:hover .pcard__kind { color: var(--gold-l); }
+.pcard h3 { font-family: var(--f-display); font-weight: 400; font-size: clamp(1.6rem, 2.2vw, 2rem); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 18px; }
+.pcard__locs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.pcard__locs span { display: inline-flex; gap: 6px; align-items: center; padding: 7px 13px; border-radius: 100px; font-size: .82rem; font-weight: 700; background: var(--bg); transition: background .5s, color .5s; }
+.pcard:hover .pcard__locs span { background: rgba(255,255,255,.1); }
+.pcard__locs svg { width: 13px; height: 13px; color: var(--gold); }
+.pcard:hover .pcard__locs svg { color: var(--gold-l); }
+.pcard__go { position: absolute; top: 28px; right: 28px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; transition: transform .6s var(--ease), background .4s, border-color .4s, color .4s; }
+.pcard__go svg { width: 18px; height: 18px; transform: rotate(-45deg); }
+.pcard:hover .pcard__go { background: var(--gold-l); border-color: var(--gold-l); color: var(--ink); transform: rotate(45deg); }
+
+.partners { display: grid; gap: 26px; }
+.partners .partner { scroll-margin-top: 120px; }
+.partner--rev .partner__img { order: 2; }
+.partner .btn-row { margin-top: 4px; gap: 22px; }
+
+.locs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.loc { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 3/4; isolation: isolate; color: #fff; display: flex; align-items: flex-end; }
+.loc img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.4s var(--ease); }
+.loc::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.85)); }
+.loc:hover img { transform: scale(1.07); }
+.loc__n { position: absolute; top: 22px; left: 22px; font-size: .72rem; font-weight: 700; padding: 6px 12px; border-radius: 100px; background: rgba(0,0,0,.35); backdrop-filter: blur(8px); letter-spacing: .14em; }
+.loc__body { padding: 26px; }
+.loc__body small { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-l); font-weight: 700; }
+.loc__body h3 { font-family: var(--f-display); font-weight: 400; font-size: 2.2rem; letter-spacing: -.02em; margin: 4px 0 12px; }
+.loc__p { display: inline-flex; gap: 8px; align-items: center; font-size: .82rem; font-weight: 600; padding: 7px 13px; border-radius: 100px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.2); backdrop-filter: blur(8px); }
+.loc__p svg { width: 14px; height: 14px; color: var(--gold-l); }
+
+@media (max-width: 1024px) {
+  .pstrip { grid-template-columns: 1fr; }
+  .partner--rev .partner__img { order: 0; }
+  .locs { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .locs { grid-template-columns: 1fr; }
+  .loc { aspect-ratio: 4/3.4; }
+  .pcard { padding: 26px; }
+  .pcard__ic { margin-bottom: 30px; }
+  .filters { border-radius: 22px; }
+}
